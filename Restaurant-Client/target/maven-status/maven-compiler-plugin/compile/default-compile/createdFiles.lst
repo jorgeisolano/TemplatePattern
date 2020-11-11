@@ -1,0 +1,5 @@
+co\mycompany\restaurant\client\infra\RestaurantSocket.class
+co\mycompany\restaurant\client\presentation\RestaurantController.class
+co\mycompany\restaurant\client\access\IRestaurantAccess.class
+co\mycompany\restaurant\client\presentation\Main.class
+co\mycompany\restaurant\client\access\RestauranteAccessImplSockets.class

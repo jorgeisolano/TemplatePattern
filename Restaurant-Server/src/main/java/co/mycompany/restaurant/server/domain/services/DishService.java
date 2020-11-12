@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Servicio de clientes. Da acceso a la lógica de negocio
+ * Servicio de Dish. Da acceso a la lógica de negocio
  *
- * @author Libardo, Julio
+ * @author Jorge Ivan Solano- Juan Pablo Solarte
  */
 public class DishService {
 
@@ -35,7 +35,7 @@ public class DishService {
      * Crea un nuevo plato. Aplica validaciones de negocio
      *
      * @param dish plato
-     * @return devuelve la cedula del customer creado
+     * @return devuelve el nombre del plato creado
      */
     public String createDish(Dish dish) {
         List<JsonError> errors = new ArrayList<>();

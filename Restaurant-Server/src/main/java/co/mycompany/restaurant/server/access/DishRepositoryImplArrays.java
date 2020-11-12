@@ -5,17 +5,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Implementación de ICustomerRepository. Utilliza arreglos en memoria
+ * Implementación de IDishRepository. Utilliza arreglos en memoria
  *
- * @author Libardo Pantoja, Julio Hurtado
+ * @author Jorge Ivan Solano- Juan Pablo Solarte
  */
 public final class DishRepositoryImplArrays implements IDishRepository {
 
     /**
-     * Array List de clientes
+     * Array List de dish
      */
     private static List<Dish> dishes;
 
+    /**
+     * Constructor de DishRepositoryImplArrays 
+     */
     public DishRepositoryImplArrays() {
         if (dishes == null){
             dishes = new ArrayList();
@@ -25,6 +28,9 @@ public final class DishRepositoryImplArrays implements IDishRepository {
         }
     }
 
+    /**
+     * Inicializa un dato el lista dish
+     */
     public void inicializar() {
         dishes.add(new Dish("Carne asada","5000","100 g de res"));
     }

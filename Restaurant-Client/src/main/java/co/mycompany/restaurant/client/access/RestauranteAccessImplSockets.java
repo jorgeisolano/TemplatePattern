@@ -9,17 +9,30 @@ import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
- *
- * @author Jorge Ivan
+ * @author Jorge Ivan Solano- Juan Pablo Solarte
+ * 
+ * Servicio de Restaurante. Permite hacer el CRUD de restaurantes solicitando los
+ * servicios con la aplicación server. Maneja los errores devueltos
  */
 public class RestauranteAccessImplSockets implements IRestaurantAccess{
 
+    /**
+     * El servicio utiliza un socket para comunicarse con la aplicación server
+     */
     private RestaurantSocket mySocket;
 
     public RestauranteAccessImplSockets() {
         mySocket = new RestaurantSocket();
     }
+    
+    /**
+     * Crea un Dish. Utiliza socket para pedir el servicio al servidor
+     * @param dish plato de restaurante
+     * @return nombre del plato creado
+     * @throws Exception error en creacion del plato
+     */
     @Override
     public String addDish(Dish dish) throws Exception {
         String jsonResponse = null;
@@ -46,6 +59,15 @@ public class RestauranteAccessImplSockets implements IRestaurantAccess{
             }
         }
     }
+    
+    /**
+     * Crea la solicitud json de creación del dish para ser enviado por el
+     * socket
+     *
+     * @param dish objeto Dish
+     * @return devulve algo como:
+     * {"resource":"restaurante","action":"set","parameters":[{"Nombre Plato":"nombre"...}}]}
+     */
     private String addDishRequestJson(Dish dish) {
 
         Protocol protocol = new Protocol();
@@ -58,6 +80,12 @@ public class RestauranteAccessImplSockets implements IRestaurantAccess{
         String requestJson = gson.toJson(protocol);
         return requestJson;
     }
+    
+    /**
+     * Extra los mensajes de la lista de errores
+     * @param jsonResponse lista de mensajes json
+     * @return Mensajes de error
+     */
     private String extractMessages(String jsonResponse) {
         JsonError[] errors = jsonToErrors(jsonResponse);
         String msjs = "";
@@ -66,6 +94,13 @@ public class RestauranteAccessImplSockets implements IRestaurantAccess{
         }
         return msjs;
     }
+    
+    /**
+     * Convierte el jsonError a un array de objetos jsonError
+     *
+     * @param jsonError
+     * @return objeto MyError
+     */
     private JsonError[] jsonToErrors(String jsonError) {
         Gson gson = new Gson();
         JsonError[] error = gson.fromJson(jsonError, JsonError[].class);

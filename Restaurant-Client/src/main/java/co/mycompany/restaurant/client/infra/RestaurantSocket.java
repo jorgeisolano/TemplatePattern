@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  * Representa el Socket de la aplicación cliente. Su función es enviar una
  * solicitud/respuesta entre el cliente y el servidor.
  *
- * @author Libardo, Julio
+ * @author Jorge Ivan Solano- Juan Pablo Solarte
  */
 public class RestaurantSocket {
 

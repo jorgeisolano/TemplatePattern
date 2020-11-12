@@ -4,7 +4,7 @@ import co.mycompany.restaurant.server.infra.ServerSocketRestaurant;
 
 /**
  * Aplicación principal que lanza el servidor en un hilo
- * @author Libardo, Julio
+ * @author Jorge Ivan Solano- Juan Pablo Solarte
  */
 public class RestaurantApplication {
     public static void main(String args[]){

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.mycompany.restaurant.server.infra;
 
 import co.mycompany.restaurant.server.domain.services.DishService;
@@ -16,11 +11,19 @@ import co.mycompany.restaurant.server.access.IDishRepository;
 
 /**
  *
- * @author Jorge Ivan
+ * @author Jorge Ivan Solano- Juan Pablo Solarte
  */
 public class ServerSocketRestaurant extends ServerSocketTemplate{
+    
+    /**
+     * Servicio de clientes
+     */
     private DishService service;
     
+    /**
+     * Inicialización
+     * @return este mismo objeto
+     */
     @Override
     protected ServerSocketTemplate init() {
         PORT = Integer.parseInt(Utilities.loadProperty("server.port"));
@@ -30,6 +33,14 @@ public class ServerSocketRestaurant extends ServerSocketTemplate{
         return this;
     }
 
+    /**
+     * Procesar la solicitud que proviene de la aplicación cliente
+     *
+     * @param requestJson petición que proviene del cliente socket en formato
+     * json que viene de esta manera:
+     * "{"resource":"restaurant","action":"set","parameters":[...(parametros cliente...)]}"
+     *
+     */
     @Override
     protected void processRequest(String requestJson) {
         // Convertir la solicitud a objeto Protocol para poderlo procesar
@@ -46,6 +57,11 @@ public class ServerSocketRestaurant extends ServerSocketTemplate{
         }
     }
 
+    /**
+     * Procesa la solicitud de consultar un customer
+     *
+     * @param protocolRequest Protocolo de la solicitud
+     */
     private void processPostDish(Protocol protocolRequest) {
         Dish dish = new Dish();
         // Reconstruir el dish a partid de lo que viene en los parámetros
@@ -56,9 +72,16 @@ public class ServerSocketRestaurant extends ServerSocketTemplate{
         respond(response);
     }
     
+     /**
+     * @return the service
+     */
     public DishService getService() {
         return service;
     }
+    
+    /**
+     * @param service the service to set
+     */
     public void setService(DishService service) {
         this.service = service;
     }

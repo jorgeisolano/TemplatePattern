@@ -3,19 +3,22 @@ package co.mycompany.restaurant.commons.domain;
 import java.util.Date;
 
 /**
- * Cliente de la agencia de viajes
+ * Dish de restautante
  *
- * @author Libardo, Julio
+ * @author Jorge Ivan Solano- Juan Pablo Solarte
  */
 public class Dish {
 
+    /**
+     * nombre del plato
+     */
     private String dishName;
     /**
-     * Apellidos
+     *precio del plato
      */
     private String dishPrice;
     /**
-     * Dirección de residencia
+     * descripcion del plato
      */
     private String dishDescription;
 

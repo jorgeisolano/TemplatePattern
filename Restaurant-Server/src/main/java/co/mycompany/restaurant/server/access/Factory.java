@@ -5,7 +5,7 @@ import co.mycompany.restaurant.commons.infra.Utilities;
 /**
  * Fabrica que se encarga de instanciar un repositorio concreto
  *
- * @author Libardo, Julio
+ * @author Jorge Ivan Solano- Juan Pablo Solarte
  */
 public class Factory {
 
@@ -30,9 +30,9 @@ public class Factory {
 
     /**
      * Método que crea una instancia concreta de la jerarquia
-     * ICustomerRepository
+     * IDishRepository
      *
-     * @return una clase hija de la abstracción IRepositorioClientes
+     * @return una clase hija de la abstracción IDishRepository
      */
     public IDishRepository getRepository() {
         String type = Utilities.loadProperty("dish.repository");
